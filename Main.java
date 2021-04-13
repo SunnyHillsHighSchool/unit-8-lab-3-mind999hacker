@@ -3,8 +3,8 @@ class Main
   /* Main method for testing */
   public static void main(String[] args) 
   {
-    Picture pic = new Picture("beach.jpg");
-     pic.decreaseBlue(.60);
+    Picture pic = new Picture("snowman.jpg");
+     pic.convertToSepia();
     pic.write("output.jpg");
   }
 }
@@ -19,4 +19,5 @@ class Main
   output.jpg file at left.  Repl.it lets you open it
   and view it directly so you can see what effect your
   code had on the image.
+  this is a test thing 
 */

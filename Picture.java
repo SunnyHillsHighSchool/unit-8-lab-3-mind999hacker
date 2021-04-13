@@ -367,8 +367,57 @@ public class Picture
   }
 
    ////////////////////// methods ///////////////////////////////////////
+public void convertToSepia()
+{
+  //create 2d array of pixels
+  Pixel[][] pixels = this.getPixels2D();
+  
+//now loop for row in the array
+  for(int i = 0; i<pixels.length;i++)
+  {
+    //new loop for col in the array
+    for(int x = 0; x<pixels[0].length;x++)
+    {
+      //new var pixel set to the currunt pixel
+      Pixel color = pixels[i][x];
+      //new double tr mult .393 to r 0.769 to g and 0.189 to b and all of them
+      double tr = (0.393*color.getRed()) + (0.769*color.getGreen()) + (0.189*color.getBlue());
+      //new double tr mult 0.349 with r 0.686 with g 0.168 with b and add them together
+      double tg = (0.349*color.getRed()) + (0.686*color.getGreen()) + (0.168*color.getBlue());
+      //new double tb mult 0.272 with r 0.534 with g 0.131 with b and add them together
+      double tb = (0.272*color.getRed()) + (0.534*color.getGreen()) + (0.131*color.getBlue());
 
-   
+      //if tr > 255
+      if(tr > 255 )
+      {
+        //set red color to 255
+        color.setRed(255);
+      }
+      else{
+        //or set red to tr
+        color.setRed((int)tr);
+      }
+      //if tg > 255
+      if(tg >255)
+      {
+        //set green to 255
+        color.setGreen((int)255);
 
-
+      }
+      else{
+        //or set green to tg
+        color.setGreen((int)tg);
+      }
+      //if tb > 255 
+      if(tb > 255)
+      {
+        //set blue to 255
+        color.setBlue(255);
+      }
+      //or set blue to tb
+      else{color.setBlue((int)tb);}
+  
+    }
+  }
+}  
 } // this } is the end of class Picture, put all new methods before this
